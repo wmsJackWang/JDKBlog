@@ -1,0 +1,45 @@
+server:
+  address: 0.0.0.0
+  port: 9090
+spring:
+  profiles:
+    # 外置jdbc和log配置文件，加载properties配置文件
+    active: jdbc,log,redis,mail
+ # spring.profiles.active=xxx 指定加载不同环境的配置,这个是项目的启动参数
+
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+    cache: false
+
+
+mybatis:
+  type-aliases-package: springboot.dao
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+# httpportcfg 配置
+httpportcfg:
+  http_port: 8080
+  https_port: 8443
+
+# Nettyserver 配置
+nettyserver:
+  serviceIp: 0.0.0.0
+  servicePort: 3460
+
+configurationinfo:
+  name:    jackdking
+  age: 26
+  gender: male
+
+  
+  
