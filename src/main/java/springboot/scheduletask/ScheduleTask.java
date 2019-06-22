@@ -85,10 +85,10 @@ public class ScheduleTask {
     
     public  void initData() {
     	
-    	String fileName = ScheduleTask.class.getClassLoader().getResource("")+"smile.txt";
+    	String fileName = this.getClass().getResource("/").getPath().substring(1)+"smile.txt";
     	System.out.println(fileName+"######################################################################");
     	
-    	File file = new File(fileName.substring(5, fileName.length()));
+    	File file = new File(fileName);
     	try {
 			Scanner scanner = new Scanner(new FileInputStream(file));
 			
@@ -177,15 +177,16 @@ public class ScheduleTask {
         return str.substring(0, stopPos);
     }
     
-//    public static void main(String[] args) throws Exception {
-//    		System.out.println(Thread.currentThread().getContextClassLoader().getResource("")); 
-//    		System.out.println(ScheduleTask.class.getClassLoader().getResource("")); 
-//    		System.out.println(ClassLoader.getSystemResource("")); 
-//    		System.out.println(ScheduleTask.class.getResource("")); 
-//    		System.out.println(ScheduleTask.class.getResource("/")); //Class文件所在路径  
-//    		System.out.println(new File("/").getAbsolutePath()); 
-//    		System.out.println(System.getProperty("user.dir"));
-//    		
+    public static void main(String[] args) throws Exception {
+    		System.out.println(Thread.currentThread().getContextClassLoader().getResource("")); 
+    		System.out.println(ScheduleTask.class.getClassLoader().getResource("")); 
+    		System.out.println(ClassLoader.getSystemResource("")); 
+    		System.out.println(ScheduleTask.class.getResource("")); 
+    		System.out.println(ScheduleTask.class.getResource("/")); //Class文件所在路径  
+    		System.out.println(new File("/").getAbsolutePath()); 
+    		System.out.println(System.getProperty("user.dir"));
+//    		System.out.println(System.getProperty("java.class.path"));
+    		
 //    		new ScheduleTask().initData();
-//    	}
+    	}
 }
