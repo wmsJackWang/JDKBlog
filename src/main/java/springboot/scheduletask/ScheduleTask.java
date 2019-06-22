@@ -30,6 +30,9 @@ public class ScheduleTask {
 
     @Value("${spring.mail.username}")
     private String mailTo;
+    
+    @Value("${spring.mail.wifemail}")
+    private String wifeMail;
 
     @Scheduled(fixedRate = 86400000)
     public void process(){
@@ -44,6 +47,8 @@ public class ScheduleTask {
             result.append(" IP： ").append(logVo.getIp()).append("\n");
         }
         mailService.sendSimpleEmail(mailTo,"博客系统运行情况",result.toString());
+        mailService.sendSimpleEmail(wifeMail, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
+        									+ "\n\n\n\n																--from JDKBlog博客系统管理员");
     }
 
     public static String getMemery() {
