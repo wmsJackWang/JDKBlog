@@ -1,7 +1,5 @@
 package springboot.scheduletask;
 
-import static org.mockito.Matchers.contains;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -178,15 +176,15 @@ public class ScheduleTask {
         return str.substring(0, stopPos);
     }
     
-    public static void main(String[] args) throws Exception {
-    		System.out.println(Thread.currentThread().getContextClassLoader().getResource("")); 
-    		System.out.println(ScheduleTask.class.getClassLoader().getResource("")); 
-    		System.out.println(ClassLoader.getSystemResource("")); 
-    		System.out.println(ScheduleTask.class.getResource("")); 
-    		System.out.println(ScheduleTask.class.getResource("/")); //Class文件所在路径  
-    		System.out.println(new File("/").getAbsolutePath()); 
-    		System.out.println(System.getProperty("user.dir"));
-    		
-    		new ScheduleTask().initData();
-    	}
+//    public static void main(String[] args) throws Exception {
+//    		System.out.println(Thread.currentThread().getContextClassLoader().getResource("")); 
+//    		System.out.println(ScheduleTask.class.getClassLoader().getResource("")); 
+//    		System.out.println(ClassLoader.getSystemResource("")); 
+//    		System.out.println(ScheduleTask.class.getResource("")); 
+//    		System.out.println(ScheduleTask.class.getResource("/")); //Class文件所在路径  
+//    		System.out.println(new File("/").getAbsolutePath()); 
+//    		System.out.println(System.getProperty("user.dir"));
+//    		
+//    		new ScheduleTask().initData();
+//    	}
 }
