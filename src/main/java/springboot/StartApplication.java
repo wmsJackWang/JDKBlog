@@ -1,35 +1,27 @@
 package springboot;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
+
+import com.alibaba.druid.pool.DruidDataSource;
+
 import springboot.config.HttpPortCfg;
 import springboot.config.NettyServerConfig;
-import springboot.server.HttpNettyServer;
-
-import javax.annotation.Resource;
-import javax.sql.DataSource;
 
 
 /*
@@ -38,8 +30,22 @@ import javax.sql.DataSource;
 @SpringBootApplication
 @EnableScheduling
 @MapperScan("springboot.dao")//启动扫描dao包，@Mapper
-public class StartApplication {//springboot如果没有指定@componentScan的话，就会默认扫描StartApplication类所在的包
+public class StartApplication extends SpringBootServletInitializer {//springboot如果没有指定@componentScan的话，就会默认扫描StartApplication类所在的包
 
+	
+	/* (non-Javadoc)
+	 * 修改
+	 * @see org.springframework.boot.web.support.SpringBootServletInitializer#configure(org.springframework.boot.builder.SpringApplicationBuilder)
+	 */
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		// TODO Auto-generated method stub
+		return application.sources(StartApplication.class);
+	}
+	
+	
+	
+	
 	/*
 	 * 	# httpportcfg 配置
 		httpportcfg:

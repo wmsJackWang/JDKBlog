@@ -43,6 +43,12 @@
 
 
     <dependencies>
+    <!-- Pom.xml 排除tomcat容器 -->
+    	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
         <!-- 数据库连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>

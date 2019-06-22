@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public abstract class AbstractController {
     public static String THEME = "themes/jantent";
+    public static String LOVE  = "mylove";
 
     protected MapCache cache = MapCache.single();
 
@@ -24,6 +25,10 @@ public abstract class AbstractController {
      * @return
      */
     public String render(String viewName) {
+    	
+    	if(viewName.startsWith("love"))
+    		return LOVE + "/" + String.valueOf(1);
+    	
         return THEME + "/" + viewName;
     }
 

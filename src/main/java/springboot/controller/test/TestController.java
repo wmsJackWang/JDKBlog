@@ -41,7 +41,9 @@ public class TestController extends AbstractController {
       System.out.println(nettyServerConfig.toString());
       System.out.println(httpPortCfg.toString()); 
     	
-    	return "testpage/test";
+    	return "";
     }
+    
+   
     
 }
