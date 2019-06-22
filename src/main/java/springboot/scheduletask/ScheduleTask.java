@@ -86,6 +86,7 @@ public class ScheduleTask {
     public  void initData() {
     	
     	String fileName = ScheduleTask.class.getClassLoader().getResource("")+"smile.txt";
+    	System.out.println(fileName+"######################################################################");
     	
     	File file = new File(fileName.substring(6, fileName.length()));
     	try {
