@@ -88,7 +88,7 @@ public class ScheduleTask {
     	String fileName = ScheduleTask.class.getClassLoader().getResource("")+"smile.txt";
     	System.out.println(fileName+"######################################################################");
     	
-    	File file = new File(fileName.substring(6, fileName.length()));
+    	File file = new File(fileName.substring(5, fileName.length()));
     	try {
 			Scanner scanner = new Scanner(new FileInputStream(file));
 			
