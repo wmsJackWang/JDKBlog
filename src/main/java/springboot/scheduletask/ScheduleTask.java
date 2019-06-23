@@ -112,12 +112,15 @@ public class ScheduleTask {
     	String fileName = this.getClass().getResource("/").getPath().substring(1)+"smile.txt";
     	System.out.println(fileName+"######################################################################");
     	
+    	if(!System.getProperty("os.name").toLowerCase().startsWith("win"))
+    		fileName = File.separator+fileName;
+    	
     	File file = new File(fileName);
     	try {
 
         	FileInputStream fi = new FileInputStream(file);
-    		
-			Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("smile.txt"));
+//        	getClass().getClassLoader().getResourceAsStream("smile.txt")
+			Scanner scanner = new Scanner(fi);
 			
 			String linestr = null;
 			StringBuffer stringBuffer = new StringBuffer();
