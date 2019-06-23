@@ -31,6 +31,12 @@ import springboot.util.DateKit;
  */
 @Component
 public class ScheduleTask {
+	
+	public ScheduleTask() {
+		// TODO Auto-generated constructor stub
+		//初始化数据
+		this.initData();
+	}
 
     @Resource
     ILogService logService;
