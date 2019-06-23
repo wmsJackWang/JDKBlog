@@ -88,14 +88,14 @@ public class ScheduleTask {
     /**
      * 能让宝宝笑得开心的数据容器
      */
-    static private List<String> smileSentence = null;
+    private static  List<String> smileSentence = null;
     
     /**
      * 同步函数，维护一个静态变量smileSentence的值。
      */
     public synchronized void  initData() {
     	
-    	if(smileSentence==null)
+    	if(smileSentence!=null)
     		return;
     		
     	smileSentence = new ArrayList<String>();
