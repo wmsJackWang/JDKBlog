@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     
     <!-- lookup parent from repository -->
-    <!-- 添加这个标签后就会出大量的错误？ -->
+    <!-- 添加这个标签后就会出大量的错误?  ,这个是创建springboot项目自带的。 -->
 	<!-- 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -23,7 +23,7 @@
         <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>
     </properties>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <build>
         <plugins>
@@ -32,6 +32,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <!-- 在pom.xml文件中将build节点中的finalName修改为server.context-path中的路径。就是项目名称。 -->
+        <finalName>JDKBlog</finalName>
     </build>
 
     <parent>
@@ -43,7 +45,7 @@
 
 
     <dependencies>
-    <!-- Pom.xml 排除tomcat容器 -->
+    <!-- Pom.xml 排除tomcat容器 ？这个能排除tomcat模块吗-->
     	<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -82,6 +84,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 启动，依赖中一处tomcat模块 先不使用，适用tomcat  provided方式-->
+            <!--  
+            <exclusions>
+		        <exclusion>
+		            <groupId>org.springframework.boot</groupId>
+		            <artifactId>spring-boot-starter-tomcat</artifactId>
+		        </exclusion>
+    		</exclusions>
+    		-->
         </dependency>
 
         <dependency>
