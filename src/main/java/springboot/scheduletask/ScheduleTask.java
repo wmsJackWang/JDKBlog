@@ -56,12 +56,12 @@ public class ScheduleTask {
     	this.initData();
     	int index =  new Random().nextInt(100);
     	String IP = null;
-        try {
-        		IP = InetAddress.getLocalHost().getHostAddress();
- 		} catch (UnknownHostException e) {
- 			// TODO Auto-generated catch block
- 			e.printStackTrace();
- 		}
+//        try {
+//        		IP = InetAddress.getLocalHost().getHostAddress();
+// 		} catch (UnknownHostException e) {
+// 			// TODO Auto-generated catch block
+// 			e.printStackTrace();
+// 		}
     	
         StringBuffer result = new StringBuffer();
         long totalMemory = Runtime.getRuntime().totalMemory();
