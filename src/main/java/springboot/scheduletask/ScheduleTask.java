@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import javax.annotation.Resource;
 
+import org.apache.xalan.xsltc.compiler.sym;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -61,7 +62,14 @@ public class ScheduleTask {
         
         int index =  new Random().nextInt(100);
         
+        System.out.println(wifeMail+"############################################");
+        
         mailService.sendSimpleEmail(wifeMail, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
+        									+ "\n\n\n\n																--from JDKBlog博客系统管理员"
+        									+ "\n\n\n 吃早饭去！！！  来给你讲个笑话，听好了啊！"
+        									+ "\n\n\n"+smileSentence.get(index%100));
+
+        mailService.sendSimpleEmail(mailTo, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
         									+ "\n\n\n\n																--from JDKBlog博客系统管理员"
         									+ "\n\n\n累了吧！！！  来给你讲个笑话，听好了啊！"
         									+ "\n\n\n"+smileSentence.get(index%100));
@@ -81,16 +89,26 @@ public class ScheduleTask {
     /**
      * 能让宝宝笑得开心的数据容器
      */
-    private List<String> smileSentence = new ArrayList<String>();
+    static private List<String> smileSentence = null;
     
-    public  void initData() {
+    /**
+     * 同步函数，维护一个静态变量smileSentence的值。
+     */
+    public synchronized void  initData() {
     	
+    	if(smileSentence==null)
+    		return;
+    		
+    	smileSentence = new ArrayList<String>();
     	String fileName = this.getClass().getResource("/").getPath().substring(1)+"smile.txt";
     	System.out.println(fileName+"######################################################################");
     	
     	File file = new File(fileName);
     	try {
-			Scanner scanner = new Scanner(new FileInputStream(file));
+
+        	FileInputStream fi = new FileInputStream(file);
+    		
+			Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("smile.txt"));
 			
 			String linestr = null;
 			StringBuffer stringBuffer = new StringBuffer();
@@ -134,6 +152,7 @@ public class ScheduleTask {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	
     }
     
     /**getStartDigits方法的改版，进一步提升了性能
@@ -177,16 +196,16 @@ public class ScheduleTask {
         return str.substring(0, stopPos);
     }
     
-    public static void main(String[] args) throws Exception {
-    		System.out.println(Thread.currentThread().getContextClassLoader().getResource("")); 
-    		System.out.println(ScheduleTask.class.getClassLoader().getResource("")); 
-    		System.out.println(ClassLoader.getSystemResource("")); 
-    		System.out.println(ScheduleTask.class.getResource("")); 
-    		System.out.println(ScheduleTask.class.getResource("/")); //Class文件所在路径  
-    		System.out.println(new File("/").getAbsolutePath()); 
-    		System.out.println(System.getProperty("user.dir"));
-//    		System.out.println(System.getProperty("java.class.path"));
-    		
-//    		new ScheduleTask().initData();
-    	}
+//    public static void main(String[] args) throws Exception {
+//    		System.out.println(Thread.currentThread().getContextClassLoader().getResource("")); 
+//    		System.out.println(ScheduleTask.class.getClassLoader().getResource("")); 
+//    		System.out.println(ClassLoader.getSystemResource("")); 
+//    		System.out.println(ScheduleTask.class.getResource("")); 
+//    		System.out.println(ScheduleTask.class.getResource("/")); //Class文件所在路径  
+//    		System.out.println(new File("/").getAbsolutePath()); 
+//    		System.out.println(System.getProperty("user.dir"));
+////    		System.out.println(System.getProperty("java.class.path"));
+//    		
+////    		new ScheduleTask().initData();
+//    	}
 }
