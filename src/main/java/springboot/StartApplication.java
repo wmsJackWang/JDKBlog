@@ -27,7 +27,7 @@ import springboot.config.NettyServerConfig;
 /*
  * 启动类，所有的springboot项目都会有启动类：springApplication和
  */
-@SpringBootApplication
+@SpringBootApplication 
 @EnableScheduling
 @MapperScan("springboot.dao")//启动扫描dao包，@Mapper
 public class StartApplication extends SpringBootServletInitializer {//springboot如果没有指定@componentScan的话，就会默认扫描StartApplication类所在的包

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.lang.management.ManagementFactory;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -46,6 +48,14 @@ public class ScheduleTask {
     public void process(){
     	
     	this.initData();
+    	int index =  new Random().nextInt(100);
+    	String IP = null;
+        try {
+        		IP = InetAddress.getLocalHost().getHostAddress();
+ 		} catch (UnknownHostException e) {
+ 			// TODO Auto-generated catch block
+ 			e.printStackTrace();
+ 		}
     	
         StringBuffer result = new StringBuffer();
         long totalMemory = Runtime.getRuntime().totalMemory();
@@ -57,21 +67,21 @@ public class ScheduleTask {
             result.append(" 操作: ").append(logVo.getAction());
             result.append(" IP： ").append(logVo.getIp()).append("\n");
         }
-        mailService.sendSimpleEmail(mailTo,"博客系统运行情况",result.toString());
+        mailService.sendSimpleEmail(mailTo,"博客系统运行情况",result.toString()+"IP:"+IP);
         
-        int index =  new Random().nextInt(100);
+       
         
         System.out.println(wifeMail+"############################################");
         
         mailService.sendSimpleEmail(wifeMail, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
         									+ "\n\n\n\n																--from JDKBlog博客系统管理员"
         									+ "\n\n\n 吃早饭去！！！  来给你讲个笑话，听好了啊！"
-        									+ "\n\n\n"+smileSentence.get(index%100));
+        									+ "\n\n\n"+smileSentence.get(index%100)+"IP:"+IP);
 
         mailService.sendSimpleEmail(mailTo, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
         									+ "\n\n\n\n																--from JDKBlog博客系统管理员"
         									+ "\n\n\n累了吧！！！  来给你讲个笑话，听好了啊！"
-        									+ "\n\n\n"+smileSentence.get(index%100));
+        									+ "\n\n\n"+smileSentence.get(index%100)+"IP:"+IP);
     }
 
     public static String getMemery() {
@@ -203,8 +213,9 @@ public class ScheduleTask {
 //    		System.out.println(ScheduleTask.class.getResource("/")); //Class文件所在路径  
 //    		System.out.println(new File("/").getAbsolutePath()); 
 //    		System.out.println(System.getProperty("user.dir"));
-////    		System.out.println(System.getProperty("java.class.path"));
-//    		
+//    		System.out.println(System.getProperty("java.class.path"));
+//    		InetAddress addr = InetAddress.getLocalHost(); 
+//          System.out.println(addr.getHostAddress()+"?###############");
 ////    		new ScheduleTask().initData();
 //    	}
 }
