@@ -83,12 +83,12 @@ public class ScheduleTask {
         String heart2 = getHeart2();
         String heart3 = getHeart3();
         String heart4 = getHeart4();
-        String heart[] = new String[]{heart1,heart2,heart3,heart4};
+        String heart[] = new String[]{"想婉宝了！",heart1,heart2,heart3,heart4};
         
         
         
         
-        mailService.sendSimpleEmail(mailTo, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
+        mailService.sendSimpleEmail(wifeMail, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
         									+ "\n\n\n\n																--from JDKBlog博客系统管理员"
         									+ "\n\n\n 王明胜说想你了，他让我转告你！  “想你，宝宝，爱你哟！！！嘿嘿”"
         									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
@@ -97,7 +97,8 @@ public class ScheduleTask {
         									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
         									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
         									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
-        									+ "\n\n\n\n "+heart[new Random().nextInt(heart.length-1)]
+        									+ "凑合着看吧！哎 😔失败的效果图呀！！"
+        									+ "\n\n\n\n "+heart[new Random().nextInt(heart.length)]
         									+ "\n\n\n 别饿着哈！！！  来给你讲个笑话，听好了啊！"
         									+ "\n\n\n"+smileSentence.get(index%100)+"IP:"+IP);
 
@@ -265,7 +266,7 @@ public class ScheduleTask {
                   else  
                   {
                          System.out.print(" "); 
-                         heart1.append("^");
+                         heart1.append(" ");
                          
                   }
             }  
