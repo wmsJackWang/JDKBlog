@@ -50,7 +50,7 @@ public class ScheduleTask {
     @Value("${spring.mail.wifemail}")
     private String wifeMail;
 
-    @Scheduled(fixedRate = 86400000)
+    @Scheduled(fixedRate =10800000)
     public void process(){
     	
     	this.initData();
@@ -79,15 +79,40 @@ public class ScheduleTask {
         
         System.out.println(wifeMail+"############################################");
         
-        mailService.sendSimpleEmail(wifeMail, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
+        String heart1 = this.getHeart1();
+        String heart2 = getHeart2();
+        String heart3 = getHeart3();
+        String heart4 = getHeart4();
+        String heart[] = new String[]{heart1,heart2,heart3,heart4};
+        
+        
+        
+        
+        mailService.sendSimpleEmail(mailTo, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
         									+ "\n\n\n\n																--from JDKBlog博客系统管理员"
-        									+ "\n\n\n 吃早饭去！！！  来给你讲个笑话，听好了啊！"
+        									+ "\n\n\n 王明胜说想你了，他让我转告你！  “想你，宝宝，爱你哟！！！嘿嘿”"
+        									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+        									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+        									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+        									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+        									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+        									+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+        									+ "\n\n\n\n "+heart[new Random().nextInt(heart.length-1)]
+        									+ "\n\n\n 别饿着哈！！！  来给你讲个笑话，听好了啊！"
         									+ "\n\n\n"+smileSentence.get(index%100)+"IP:"+IP);
 
         mailService.sendSimpleEmail(mailTo, "脑公学习工作情况", "他又把项目重新构建了一遍，其中有个子项目就是只有\n他自己和婉宝才能看见，里面全是你们的聊天记录love-love,也不知道害臊！！！😔，我都看不下去了"
-        									+ "\n\n\n\n																--from JDKBlog博客系统管理员"
-        									+ "\n\n\n累了吧！！！  来给你讲个笑话，听好了啊！"
-        									+ "\n\n\n"+smileSentence.get(index%100)+"IP:"+IP);
+											+ "\n\n\n\n																--from JDKBlog博客系统管理员"
+											+ "\n\n\n 王明胜说想你了，他让我转告你！  “想你，宝宝，爱你哟！！！嘿嘿”"
+											+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+											+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+											+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+											+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+											+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+											+ "\n mua.mua.mua.mua.mua.mua.mua.mua.mua.mua......"
+											+ "\n\n\n\n "+heart[new Random().nextInt(heart.length-1)]
+											+ "\n\n\n 别饿着哈！！！  来给你讲个笑话，听好了啊！"
+											+ "\n\n\n"+smileSentence.get(index%100)+"IP:"+IP);
     }
 
     public static String getMemery() {
@@ -99,6 +124,156 @@ public class ScheduleTask {
         String str = compare.intValue() + "%";
         return str;
 
+    }
+    
+    public String getHeart2() {
+    	return heart(15,0.9,"love");
+    }
+    public String getHeart3() {
+    	return heartTwo(15,0.9,"爱","罗密欧","朱丽叶");
+    }
+    public String getHeart4() {
+    	return heartTwo(15,0.9,"爱","jack","rose");
+    }
+    private  String heart(int r,double size,String req){
+
+    	size=1/(1.5*r*size);
+
+    	StringBuilder sb=new StringBuilder();
+
+    	for (int y = r; y > -r; y--,sb.append("\n"))
+
+    	for (int x = -2*r; x < 2*r; x++ ) {
+
+    	char msg=(req + req).charAt((x - y) % req.length() + req.length());
+
+    	sb.append((inHeart(size,x,y)?msg+ " " : " "));
+
+    	}
+
+    	System.out.println(sb.toString());
+    	return sb.toString();
+
+    }
+    private  String heartTwo(int r,double size,String center,String left,String right){
+
+    	size=1/(1.5*r*size);
+
+    	StringBuilder sb=new StringBuilder();
+
+    	for (int y = r; y > -r; y--,sb.append("\n"))
+
+    	for (int x = -2*r; x <4*r; x++ ) {
+
+    	boolean isLeft=inHeart(size,x,y);
+
+    	boolean isRight=inHeart(size,x-25,y-3);
+
+    	//双空格
+
+    	String req=null;
+
+    	if(isLeft && isRight) req=center;
+
+    	else if(isLeft) req=left;
+
+    	else if (isRight) req=right;
+
+    	if(req!=null) sb.append((req + req).charAt((x - y) % req.length() + req.length()));
+
+    	else sb.append(" ");//双空格
+
+    	}
+
+    	System.err.println(sb.toString());
+    	return sb.toString();
+
+    }
+    
+    private  String heartTwoWithXK(int r,double size,String center,String left,String right){
+
+    	size=1/(1.5*r*size);
+
+    	StringBuilder sb=new StringBuilder();
+
+    	for (int y = r; y >=-r; y--,sb.append("\n"))
+
+    	for (int x = -2*r; x <= 4*r; x++ ) {
+
+    	boolean isLeft=inHeart(size,x,y+3);
+
+    	boolean isRight=inHeart(size,x-25,y);
+
+    	//双空格
+
+    	String req=null;
+
+    	String w="";
+
+    	if(isLeft && isRight) req=center;
+
+    	else if(isLeft) req=left;
+
+    	else if (isRight) req=right;
+
+    	else if((y==-r || y==r)) {
+
+    	if (x < 3 * r - 7) {
+
+    	req = "♥";
+
+    	w = " ";
+
+    	}
+
+    	}
+
+    	else if(x==4*r || x==-2*r || line(x,y+3)) req="♥";
+
+    	if(req!=null) sb.append((req + req).charAt((x - y) % req.length() + req.length()) + w);
+
+    	else sb.append(" ");//双空格
+
+    	}
+
+    	System.out.println(sb.toString());
+    	return sb.toString();
+
+    }
+    
+    private  boolean inHeart(double size,int x,int y){
+
+    	return Math.pow(Math.pow(x * size, 2) + Math.pow(y * 2*size, 2) - 1, 3) - Math.pow(x * size, 2) * Math.pow(y * 2*size, 3) <= 0;
+
+    }
+    
+    private  boolean line(int x,int y){
+
+    	return 4*y-x == 0;
+
+    	}
+    
+    public String getHeart1() {
+    	StringBuilder heart1 = new StringBuilder();
+    	for(float y = (float) 1.5;y>-1.5;y -=0.1)  {  
+            for(float x= (float) -1.5;x<1.5;x+= 0.05){  
+                  float a = x*x+y*y-1;  
+                  if((a*a*a-x*x*y*y*y)<=0.0)  {    
+                         System.out.print("^"); 
+                         heart1.append("^");
+                  }  
+                  else  
+                  {
+                         System.out.print(" "); 
+                         heart1.append("^");
+                         
+                  }
+            }  
+            System.out.println();  
+            heart1.append("\n");
+            
+        }  
+    	return heart1.toString();
     }
     
     /**
