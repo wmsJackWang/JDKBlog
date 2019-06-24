@@ -127,13 +127,13 @@ public class ScheduleTask {
     }
     
     public String getHeart2() {
-    	return heart(15,0.9,"love");
+    	return heart(5,0.3,"love");
     }
     public String getHeart3() {
-    	return heartTwo(15,0.9,"爱","罗密欧","朱丽叶");
+    	return heartTwo(5,0.3,"爱","罗密欧","朱丽叶");
     }
     public String getHeart4() {
-    	return heartTwo(15,0.9,"爱","jack","rose");
+    	return heartTwo(5,0.3,"爱","jack","rose");
     }
     private  String heart(int r,double size,String req){
 
