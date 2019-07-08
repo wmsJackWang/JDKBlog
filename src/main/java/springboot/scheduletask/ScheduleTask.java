@@ -60,7 +60,10 @@ public class ScheduleTask {
     	System.out.println("################################################################");
 //    	System.out.println(redisService.existsKey("testRedis"));
     	if(redisService.existsKey("key"))
-    		mailService.sendSimpleEmail(mailTo,"redis",redisService.existsKey("testRedis")?"true":"false");
+    	{
+    		mailService.sendSimpleEmail(wifeMail,"脑公喊你！起床啦！","起床啦！小懒猪！起来发微信！脑公帮你关掉哦！");
+    		mailService.sendSimpleEmail(mailTo,"脑公喊你！起床啦！","起床啦！小懒猪！起来发微信！脑公帮你关掉哦！");
+    	}
     }
 
     @Scheduled(fixedRate =10800000)
