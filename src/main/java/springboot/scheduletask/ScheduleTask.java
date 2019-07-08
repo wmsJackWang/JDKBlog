@@ -59,7 +59,7 @@ public class ScheduleTask {
     public  void testRedis() {
     	System.out.println("################################################################");
 //    	System.out.println(redisService.existsKey("testRedis"));
-    	if(!redisService.existsKey("key"))
+    	if(redisService.existsKey("key"))
     		mailService.sendSimpleEmail(mailTo,"redis",redisService.existsKey("testRedis")?"true":"false");
     }
 
