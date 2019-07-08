@@ -22,6 +22,7 @@ import com.sun.management.OperatingSystemMXBean;
 import springboot.modal.vo.LogVo;
 import springboot.service.ILogService;
 import springboot.service.IMailService;
+import springboot.service.impl.RedisService;
 import springboot.util.DateKit;
 
 
@@ -31,6 +32,9 @@ import springboot.util.DateKit;
  */
 @Component
 public class ScheduleTask {
+	
+	@Resource
+	private RedisService redisService;
 	
 	public ScheduleTask() {
 		// TODO Auto-generated constructor stub
@@ -49,6 +53,13 @@ public class ScheduleTask {
     
     @Value("${spring.mail.wifemail}")
     private String wifeMail;
+    
+
+    @Scheduled(fixedRate =3000)
+    public  void testRedis() {
+    	System.out.println("################################################################");
+    	System.out.println(redisService.existsKey("testRedis"));
+    }
 
     @Scheduled(fixedRate =10800000)
     public void process(){
