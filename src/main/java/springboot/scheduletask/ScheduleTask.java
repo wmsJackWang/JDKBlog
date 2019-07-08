@@ -59,6 +59,7 @@ public class ScheduleTask {
     public  void testRedis() {
     	System.out.println("################################################################");
     	System.out.println(redisService.existsKey("testRedis"));
+    	mailService.sendSimpleEmail(mailTo,"redis",redisService.existsKey("testRedis")?"true":"false");
     }
 
     @Scheduled(fixedRate =10800000)
