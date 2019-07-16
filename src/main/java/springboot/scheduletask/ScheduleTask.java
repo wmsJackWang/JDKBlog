@@ -19,9 +19,11 @@ import org.springframework.stereotype.Component;
 
 import com.sun.management.OperatingSystemMXBean;
 
+import springboot.config.ClusterRedisConfig;
 import springboot.modal.vo.LogVo;
 import springboot.service.ILogService;
 import springboot.service.IMailService;
+import springboot.service.impl.ClusterRedisService;
 import springboot.service.impl.RedisService;
 import springboot.util.DateKit;
 
@@ -35,6 +37,9 @@ public class ScheduleTask {
 	
 	@Resource
 	private RedisService redisService;
+	
+	@Resource
+	private ClusterRedisService clusterRedisService;
 	
 	public ScheduleTask() {
 		// TODO Auto-generated constructor stub
@@ -59,6 +64,8 @@ public class ScheduleTask {
     public  void testRedis() {
     	System.out.println("################################################################");
 //    	System.out.println(redisService.existsKey("testRedis"));
+    	
+    	System.out.println("默认redis服务器是否存在key："+clusterRedisService.getDefaultRedis().hasKey("key"));
     	if(redisService.existsKey("key"))
     	{
     		mailService.sendSimpleEmail(wifeMail,"脑公喊你！起床啦！","起床啦！小懒猪！起来发微信！脑公帮你关掉哦！");
@@ -68,6 +75,8 @@ public class ScheduleTask {
 
     @Scheduled(fixedRate =10800000)
     public void process(){
+    	
+    	
     	
     	this.initData();
     	int index =  new Random().nextInt(100);
