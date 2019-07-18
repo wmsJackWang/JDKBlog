@@ -1,4 +1,4 @@
-package myProject.com.hashutils;
+package springboot.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

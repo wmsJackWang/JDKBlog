@@ -1,4 +1,4 @@
-package myProject.com.bigdatafile.registeruserdata;
+package springboot.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,11 +13,11 @@ public class UserDataUtil {
 	}
 	private UserDataUtil(){};
 	/**
-	 * Éú³ÉÒ»ÅúÓÃ»§id
-	 * <br>Éú³É¹æÔò£º
-	 * ×ÖÄ¸¼ÓÊı×ÖµÄ¹Ì¶¨5Î»£¬Ç°ÈıÎ»ÎªĞ¡Ğ´×ÖÄ¸£¬ºóÁ½Î»ÎªÊı×Ö
-	 * @param oldUserIds ÏµÍ³ÖĞÔ­ÓĞµÄÓÃ»§idÁĞ±í£¬±ÜÃâÖØ¸´,²»ÍÆ¼öÊ¹ÓÃ£¬ÒòÎªarraylistÖ§³ÖµÄÊıÁ¿Ğ¡
-	 * @param num Òª»ñÈ¡¶àÉÙ¸öÓÃ»§±àºÅ
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ã»ï¿½id
+	 * <br>ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½
+	 * ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÄ¹Ì¶ï¿½5Î»ï¿½ï¿½Ç°ï¿½ï¿½Î»ÎªĞ¡Ğ´ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»Îªï¿½ï¿½ï¿½ï¿½
+	 * @param oldUserIds ÏµÍ³ï¿½ï¿½Ô­ï¿½Ğµï¿½ï¿½Ã»ï¿½idï¿½Ğ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½,ï¿½ï¿½ï¿½Æ¼ï¿½Ê¹ï¿½Ã£ï¿½ï¿½ï¿½ÎªarraylistÖ§ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡
+	 * @param num Òªï¿½ï¿½È¡ï¿½ï¿½ï¿½Ù¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public static List<String> getUserName(List<String> oldUserIds,int num){
@@ -25,15 +25,15 @@ public class UserDataUtil {
 		while(ids.size()<num){
 			StringBuffer sb=new StringBuffer();
 			for(int j=1;j<=8;j++){
-				if(j<=5){//Ç°ÈıÎ»»ñÈ¡×ÖÄ¸
+				if(j<=5){//Ç°ï¿½ï¿½Î»ï¿½ï¿½È¡ï¿½ï¿½Ä¸
 					sb.append(getLetter());
-				}else{//ºóÁ½Î»ÓÃÊı×Ö
+				}else{//ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					sb.append(getNum());
 				}
 			}
 			String userName=sb.toString();
 			if(oldUserIds.contains(userName)||ids.contains(userName)){
-				//ÒÑ´æÔÚ£¬ÖØĞÂÉú³ÉÒ»¸ö
+				//ï¿½Ñ´ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 			}else{
 				ids.add(userName);
 			}
@@ -42,45 +42,45 @@ public class UserDataUtil {
 	}
 	
 	/**
-	 * Éú³ÉÒ»ÅúÃÜÂë
-	 * <br>Éú³É¹æÔò£º
-	 * ´óĞ´×ÖÄ¸+Ğ¡Ğ´×ÖÄ¸+Êı×Ö
-	 * @param num ÒªÉú³É¶àÉÙ¸öÃÜÂë
-	 * @param wordNum ÒªÉú³ÉµÄÃÜÂë³¤¶ÈÊÇ¶àÉÙ
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * <br>ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½
+	 * ï¿½ï¿½Ğ´ï¿½ï¿½Ä¸+Ğ¡Ğ´ï¿½ï¿½Ä¸+ï¿½ï¿½ï¿½ï¿½
+	 * @param num Òªï¿½ï¿½ï¿½É¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param wordNum Òªï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ë³¤ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public static List<String> getPasswords(int num,Integer wordNum){
-		int total=wordNum;//ÃÜÂë×ÜÎ»Êı
+		int total=wordNum;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 		List<String> passwords=new ArrayList<String>();
 		while(passwords.size()<num){
 			StringBuffer sb=new StringBuffer();
-			int upperNum=getRadomInt(1,total-2);//´óĞ´×ÖÄ¸Î»Êı£¬±£ÁôÖÁÉÙÁ½Î»£¬ÓÃÀ´·ÅĞ¡Ğ´ºÍÊı×Ö
-			int lowerNum=getRadomInt(1, total-upperNum-1);//Ğ¡Ğ´×ÖÄ¸Î»Êı£¬Îª×ÜÊı¼õÈ¥´óĞ´×ÖÄ¸Õ¼ÓÃµÄÊıÁ¿£¬ÔÙÎªÊı×ÖÇøÓò±£ÁôÖÁÉÙ1
-			int nnum=total-upperNum-lowerNum;//×îºóÊ£ÓàÊı×ÖµÄÎ»Êı£¬Îª×ÜÊı¼õÈ¥´óĞ´ºÍĞ¡Ğ´×ÖÄ¸Î»ÊıÖ®ºóÊ£ÓàµÄÎ»Êı
-			//Ëæ»ú»ñÈ¡µ½Ã¿¸öÀàĞÍµÄÎ»ÖÃindex
+			int upperNum=getRadomInt(1,total-2);//ï¿½ï¿½Ğ´ï¿½ï¿½Ä¸Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			int lowerNum=getRadomInt(1, total-upperNum-1);//Ğ¡Ğ´ï¿½ï¿½Ä¸Î»ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ğ´ï¿½ï¿½Ä¸Õ¼ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1
+			int nnum=total-upperNum-lowerNum;//ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Î»ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ğ´ï¿½ï¿½Ğ¡Ğ´ï¿½ï¿½Ä¸Î»ï¿½ï¿½Ö®ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+			//ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Î»ï¿½ï¿½index
 			Map<Integer,String> indexMap=new HashMap<Integer,String>();
 			while(indexMap.size()<upperNum){
-				//È·¶¨´óĞ´×ÖÄ¸µÄË÷ÒıºÅ
+				//È·ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				int rint=getRadomInt(0, total-1);
 				if(indexMap.get(rint)==null){
 					indexMap.put(rint, "upper");
 				}
 			}
 			while(indexMap.size()<upperNum+lowerNum){
-				//È·¶¨Ğ¡Ğ´×ÖÄ¸µÄË÷ÒıºÅ
+				//È·ï¿½ï¿½Ğ¡Ğ´ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				int rint=getRadomInt(0, total-1);
 				if(indexMap.get(rint)==null){
 					indexMap.put(rint, "lower");
 				}
 			}
 			while(indexMap.size()<total){
-				//È·¶¨Êı×ÖµÄË÷ÒıºÅ
+				//È·ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				int rint=getRadomInt(0, total-1);
 				if(indexMap.get(rint)==null){
 					indexMap.put(rint, "nnum");
 				}
 			}
-			//×é×°ÃÜÂë
+			//ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½
 			for(int i=0;i<total;i++){
 				if("upper".equals(indexMap.get(i))){
 					sb.append(getUpper());
@@ -95,7 +95,7 @@ public class UserDataUtil {
 		return passwords;
 	}
 	/**
-	 * Ëæ»ú»ñÈ¡Ò»¸öĞ¡Ğ´×ÖÄ¸
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½Ğ¡Ğ´ï¿½ï¿½Ä¸
 	 * @param args
 	 */
 	public static char getLetter(){
@@ -104,7 +104,7 @@ public class UserDataUtil {
 	}
 	
 	/**
-	 * Ëæ»ú»ñÈ¡Ò»¸ö´óĞ´×ÖÄ¸
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½Ä¸
 	 * @param args
 	 */
 	public static char getUpper(){
@@ -113,7 +113,7 @@ public class UserDataUtil {
 	}
 	
 	/**
-	 * Ëæ»ú»ñÈ¡Ò»¸ö0-9µÄÊı×Ö
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½0-9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public static int getNum(){
@@ -122,7 +122,7 @@ public class UserDataUtil {
 	
 	
 	/*
-	 * Ëæ»ú»ñÈ¡Ò»¸öĞÔ±ğ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ô±ï¿½
 	 * @return
 	 */
 	public static String getGender() {
@@ -130,7 +130,7 @@ public class UserDataUtil {
 	}
 	
 	/**
-	 * »ñÈ¡Ò»¸ö·¶Î§ÄÚµÄËæ»úÊı×Ö
+	 * ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½Î§ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public static int getRadomInt(int min,int max){
@@ -138,7 +138,7 @@ public class UserDataUtil {
 	}
  
 	public static void main(String[] args) {
-		int num = 10000000;//100¸öÓÃ»§ÃûºÍÃÜÂë
+		int num = 10000000;//100ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		for(int i = 0;i<num;++i) {
 			List<String> usrlist=getUserName(new ArrayList(), 1);
 			for(String s:usrlist){
