@@ -62,7 +62,7 @@ public class ScheduleTask {
     
     
 
-    @Scheduled(fixedRate =3000)
+//    @Scheduled(fixedRate =3000)
     public  void testRedis() {
     	System.out.println("################################################################");
 //    	System.out.println(redisService.existsKey("testRedis"));

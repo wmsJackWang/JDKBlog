@@ -1,5 +1,6 @@
 package springboot.scheduletask.mytest;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.springframework.data.redis.core.RedisTemplate;
+
+import springboot.service.IMailService;
 import springboot.service.impl.ClusterRedisService;
 import springboot.util.StringHashUtils;
 import springboot.util.UserDataUtil;
@@ -33,7 +37,7 @@ public class WriteUserDataToBaseVersion0 {
 //		}
 //		
 		}
-	public void createUserData(ClusterRedisService redisClient)  throws ClassNotFoundException, SQLException{
+	public void createUserData(ClusterRedisService redisClient ,IMailService mailService , String mailTo)  throws ClassNotFoundException, SQLException{
 		 // 1.加载数据访问驱动
         Class.forName("com.mysql.jdbc.Driver");
         //2.连接到数据"库"上去
@@ -94,22 +98,37 @@ public class WriteUserDataToBaseVersion0 {
         	int j = 0 ;
         	nameNum = 0 ;
         	uniqueName = 0;
-        	
+        	RedisTemplate<String, Object> redis =null;
         	Long beginTime = System.currentTimeMillis();
         	for(; j < 10000 ; ) {
         		//获取一个用户编号
         		name = UserDataUtil.getUserName(new ArrayList(), 1).get(0).toString();
+        		int hash = 0;
+				try {
+					hash = StringHashUtils.md5(name).hashCode()%2;
+				} catch (NoSuchAlgorithmException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+        		System.out.println(hash+"#########################################################");
+        		if(hash*hash==0) {
+        			redis = redisClient.getDefaultRedis();
+        		}
+        		else {
+        			redis = redisClient.getCacheRedis();
+        		}
+//        		RedisTemplate<String, Object> redis = 
         		++nameNum;
         		continueok = false;
         		try {
         			//查找key,存在返回true
-        			isExist = redisClient.getDefaultRedis().hasKey(name);
+        			isExist = redis.hasKey(name);
 //        			System.out.println(isExist);
-					String value = StringHashUtils.md5(name);
+					String value = "1";
 					//每次put，都会去查找key，存在则覆盖，不存在则新建
 					//可优化成，通过isExist来判断是否要put，可以减少key的查找
 					if(!isExist)//不存在就去put
-						redisClient.getDefaultRedis().opsForValue().set(name, value);
+						redis.opsForValue().set(name, value);
 					++uniqueName;
 					
 				} catch (Exception e) {
@@ -152,8 +171,10 @@ public class WriteUserDataToBaseVersion0 {
         	}
         	String sql = sqlPre + sbf.substring(0, sbf.length()-1);
         	pstate.addBatch(sql);
+        	String msg = "总共插入数据的数量:"+pstate.executeBatch();
         	
-        	System.out.println("总共插入数据的数量:"+pstate.executeBatch());
+        	System.out.println(msg);
+        	mailService.sendSimpleEmail(mailTo,"一万条数据插入操作",msg);
         	
         	conn.commit();
         	
@@ -161,13 +182,20 @@ public class WriteUserDataToBaseVersion0 {
         	
         	++i;
         	Long endTime = System.currentTimeMillis();
-        	System.out.println(i*j+"一万条数据被入库需要时间："+String.valueOf(endTime - beginTime)+" 总共生产用户名次数："
-        						+String.valueOf(nameNum)+"  唯一用户名生成效率：" + String.valueOf((uniqueName*1.0/nameNum)));
+        	msg=i*j+"一万条数据被入库需要时间："+String.valueOf(endTime - beginTime)+" 总共生产用户名次数："
+					+String.valueOf(nameNum)+"  唯一用户名生成效率：" + String.valueOf((uniqueName*1.0/nameNum));
+
+        	mailService.sendSimpleEmail(mailTo,"一万条数据插入操作",msg);
+        	System.out.println(msg);
         }
         
 		
 		long end = System.currentTimeMillis();
-		System.out.println("所有数据写入数据写入MySQL耗时:" + (end - begin)+"毫秒");
+		String msg = "所有数据写入数据写入MySQL耗时:" + (end - begin)+"毫秒";
+
+    	mailService.sendSimpleEmail(mailTo,"一万条数据插入操作",msg);
+		System.out.println(msg);
+		
 	
 	}
 }

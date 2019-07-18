@@ -35,7 +35,7 @@ public class UserDataCreateSchedule {
 	public void CreateUserDataWithRedisCluster() {
 		
 		try {
-			new WriteUserDataToBaseVersion0().createUserData(clusterRedisService);
+			new WriteUserDataToBaseVersion0().createUserData(clusterRedisService,mailService,mailTo);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
