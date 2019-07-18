@@ -77,8 +77,8 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version>
-            <scope>runtime</scope>
+            <version>5.1.39</version>
+            <!-- <scope>runtime</scope> -->
         </dependency>
 
         <!-- jsoup-->
@@ -119,7 +119,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency> 
 
         <!-- mybatis-->
 

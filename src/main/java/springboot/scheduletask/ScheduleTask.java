@@ -59,6 +59,8 @@ public class ScheduleTask {
     @Value("${spring.mail.wifemail}")
     private String wifeMail;
     
+    
+    
 
     @Scheduled(fixedRate =3000)
     public  void testRedis() {

@@ -40,7 +40,7 @@ public class StartApplication extends SpringBootServletInitializer {//springboot
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		// TODO Auto-generated method stub
-		return application.sources(StartApplication.class);
+		return application.sources(StartApplication.class); 
 	}
 	
 	
