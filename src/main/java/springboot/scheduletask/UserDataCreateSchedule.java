@@ -31,7 +31,7 @@ public class UserDataCreateSchedule {
     
     
 	//十天周期重新执行任务
-	@Scheduled(fixedRate =1000*60*60*60*24*10)
+//	@Scheduled(fixedRate =1000*60*60*60*24*10)
 	public void CreateUserDataWithRedisCluster() {
 		
 		try {
