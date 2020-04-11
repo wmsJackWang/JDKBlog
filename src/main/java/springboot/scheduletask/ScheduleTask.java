@@ -313,67 +313,67 @@ public class ScheduleTask {
      * 同步函数，维护一个静态变量smileSentence的值。
      */
     public synchronized void  initData() {
-    	
-    	if(smileSentence!=null)
-    		return;
-    		
-    	smileSentence = new ArrayList<String>();
-    	String fileName = this.getClass().getResource("/").getPath().substring(1)+"smile.txt";
-    	System.out.println(fileName+"######################################################################");
-    	
-    	if(!System.getProperty("os.name").toLowerCase().startsWith("win"))
-    		fileName = File.separator+fileName;
-    	
-    	File file = new File(fileName);
-    	try {
-
-        	FileInputStream fi = new FileInputStream(file);
-//        	getClass().getClassLoader().getResourceAsStream("smile.txt")
-			Scanner scanner = new Scanner(fi);
-			
-			String linestr = null;
-			StringBuffer stringBuffer = new StringBuffer();
-			boolean first = true;
-			for(;scanner.hasNextLine();)
-			{
-//				System.out.println(str = scan.nextLine().toString()); 
-				linestr = scanner.nextLine().toString();
-				//空字符串跳过
-				if(linestr.trim().equals("")) continue;
-				String str = this.getStartDigitsV01(linestr);
-				if(first&&str!=null) {
-					stringBuffer.append(linestr.substring(str.length()+1, linestr.length()));
-					first = false;
-					continue;
-				}
-				
-				if(str==null)
-				{
-					stringBuffer.append(linestr);
-					continue;
-				}
-				
-				if(str!=null)
-				{
-					smileSentence.add(stringBuffer.toString());
-					stringBuffer.delete(0, stringBuffer.length());
-					stringBuffer.append(linestr.substring(str.length()+1, linestr.length()));
-					continue;
-				}
-			}
-			
-			smileSentence.add(stringBuffer.toString());
-			
-//			for(String s:smileSentence)
-//				System.out.println(s);
-			
-			
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
+//    	
+//    	if(smileSentence!=null)
+//    		return;
+//    		
+//    	smileSentence = new ArrayList<String>();
+//    	String fileName = "classpath:smile.txt";
+//    	System.out.println(fileName+"######################################################################");
+//    	
+//    	if(!System.getProperty("os.name").toLowerCase().startsWith("win"))
+//    		fileName = File.separator+fileName;
+//    	
+//    	File file = new File(fileName);
+//    	try {
+//
+//        	FileInputStream fi = new FileInputStream(file);
+////        	getClass().getClassLoader().getResourceAsStream("smile.txt")
+//			Scanner scanner = new Scanner(fi);
+//			
+//			String linestr = null;
+//			StringBuffer stringBuffer = new StringBuffer();
+//			boolean first = true;
+//			for(;scanner.hasNextLine();)
+//			{
+////				System.out.println(str = scan.nextLine().toString()); 
+//				linestr = scanner.nextLine().toString();
+//				//空字符串跳过
+//				if(linestr.trim().equals("")) continue;
+//				String str = this.getStartDigitsV01(linestr);
+//				if(first&&str!=null) {
+//					stringBuffer.append(linestr.substring(str.length()+1, linestr.length()));
+//					first = false;
+//					continue;
+//				}
+//				
+//				if(str==null)
+//				{
+//					stringBuffer.append(linestr);
+//					continue;
+//				}
+//				
+//				if(str!=null)
+//				{
+//					smileSentence.add(stringBuffer.toString());
+//					stringBuffer.delete(0, stringBuffer.length());
+//					stringBuffer.append(linestr.substring(str.length()+1, linestr.length()));
+//					continue;
+//				}
+//			}
+//			
+//			smileSentence.add(stringBuffer.toString());
+//			
+////			for(String s:smileSentence)
+////				System.out.println(s);
+//			
+//			
+//			
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//    	
     }
     
     /**getStartDigits方法的改版，进一步提升了性能

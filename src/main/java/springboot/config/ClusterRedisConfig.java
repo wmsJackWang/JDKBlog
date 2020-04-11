@@ -20,21 +20,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import redis.clients.jedis.JedisPoolConfig;
 
-@EnableCaching
-@Configuration
+
 public class ClusterRedisConfig {
 	
 	@Value("${spring.redis.pool.max-active}")
-    private int redisPoolMaxActive;
+    public int redisPoolMaxActive;
 
     @Value("${spring.redis.pool.max-Wait}")
-    private int redisPoolMaxWait;
+    public int redisPoolMaxWait;
 
     @Value("${spring.redis.pool.max-idle}")
-    private int redisPoolMaxIdle;
+    public int redisPoolMaxIdle;
 
     @Value("${spring.redis.pool.min-idle}")
-    private int redisPoolMinIdle;
+    public int redisPoolMinIdle;
     
     
     /**

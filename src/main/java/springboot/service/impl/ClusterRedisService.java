@@ -23,7 +23,7 @@ public class ClusterRedisService {
 	private RedisTemplate<String, Object> defaultRedisTemplate;
 	
 	@Autowired
-	@Qualifier("cacheRedisTemplate")
+	@Qualifier("defaultRedisTemplate")
 	private RedisTemplate<String, Object> cacheRedisTemplate;
 	
 	private RedisTemplate<String, Object> currentRedisTemplate = null;

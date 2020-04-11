@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="themes/jantent/header::header(title='文章归档',keywords=null)"></div>
+<div th:replace="themes/jantent/section::section(title=null,time=null,auth=null)"></div>
 <body>
 <div class="main-content archive-page clearfix">
-    <h1 class="blog-text-center">-- 存档 --</h1>
-    <div class="am-u-sm-12">
+    <div class="am-u-sm-30">
         <th:block th:each="archive : ${archives}">
             <ul>
                 <h2 th:text="${archive.date}"></h2>
                     <th:block th:each="article : ${archive.articles}">
                         <li>
-                            <span class="am-u-sm-4 am-u-md-2 timeline-span">
+                            <span class="am-u-sm-2 am-u-md-2 timeline-span">
                                 <th:block th:text="${commons.fmtdate(article.created)}"/>
                             </span>
-                            <span class="am-u-sm-8 am-u-md-6">
+                            <span class="am-u-sm-12 am-u-md-8" style="display:inline-block;font-size:22px;width:600px ">
                                 <a th:href="${commons.permalink(article.cid, article.slug)}"
                                    th:text="${article.title}"></a>
                             </span>
                         </li>
+                        <br/>
                     </th:block>
             </ul>
         </th:block>

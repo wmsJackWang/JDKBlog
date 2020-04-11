@@ -11,9 +11,38 @@
     <meta name="description" th:content="${description ?:commons.site_option('site_description')}"/>
     <link rel="shortcut icon" th:href="@{/user/img/logo.png}"/>
     <link rel="apple-touch-icon" th:href="@{/user/img/apple-touch-icon.png}"/>
-    <title><th:block th:text="${title ?: '首页'}+' - '+${commons.site_option('site_title','Janti Blog')}"></th:block></title>
+    <title><th:block th:text="${title ?: '首页'}+' - '+${commons.site_option('site_title','比特科技')}"></th:block></title>
     <link th:href="@{//cdn.bootcss.com/highlight.js/9.9.0/styles/xcode.min.css}" rel="stylesheet"/>
     <link th:href="@{/user/css/style.min.css}" rel="stylesheet"/>
+    
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="http://favorites.ren/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" th:href="@{/jantent/assets/css/octicons/octicons.css}"> -->
+    <link rel="stylesheet" href="http://favorites.ren/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="http://favorites.ren/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://favorites.ren/assets/css/syntax.css">
+    <link rel="stylesheet" href="http://favorites.ren/assets/css/gitalk.css">
+    
+        
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="http://favorites.ren/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+    <link rel="stylesheet" href="http://favorites.ren/assets/css/blog-page.css">
+    
+    
+    <!-- CSS set in layout -->
+    
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    
+    <script type="text/javascript" src="http://favorites.ren/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://favorites.ren/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:src="@{/jantent/assets/js/lock.js}"></script>
+    
+    
     <script th:src="@{//cdn.bootcss.com/jquery/2.2.3/jquery.min.js}"></script>
     <script th:src="@{/jantent/assets/js/amazeui.min.js}"></script>
     <link rel="stylesheet" th:href="@{/jantent/assets/css/amazeui.min.css}"/>
@@ -22,6 +51,14 @@
     <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        /*让每一个下拉按钮占据的宽度与居中*/
+        .am-dropdown{
+            width:25%;
+            text-align:center;
+        }
+    </style>
+    
 </head>
 <body  gtools_scp_screen_capture_injected="true" th:class="${is_post}?'':'bg-
 '">
@@ -31,12 +68,24 @@
 </div>
 <![endif]-->
 <header id="header" class="header bg-white">
-    <div class="navbar-container">
-        <a th:href="${commons.site_url()}" class="navbar-logo">首页</a>
-        <div class="navbar-menu">
+    <div class="navbar-container" >
+        <a th:href="${commons.site_url()}" class="navbar-logo">比特科技</a>
+
+
+        <div class="navbar-menu" >        
+
             <a style="color: #fff" th:href="${commons.site_url('/archives')}">归档</a>
-            <a style="color: #fff" th:href="${commons.site_url('/links')}">友链</a>
+            <a style="color: #fff" th:href="${commons.site_url('/links')}">友链</a> 
             <a style="color: #fff" th:href="${commons.site_url('/about')}">关于</a>
+            <div class="am-dropdown" data-am-dropdown style="color: #fff">
+                <button style="color: #fff"  class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle >Redis<span class="am-icon-caret-down"></span></button>
+                <ul class="am-dropdown-content ">
+                    <li><a href="#" >Redis主从模式</a></li>
+                    <li><a href="#" >Redis哨兵模式</a></li>
+                    <li class="am-divider"></li>
+                    <li><a href="#" >Redis集群模式</a></li>
+                </ul>
+		    </div>
         </div>
         <div class="navbar-search" onclick="">
             <span class="icon-search"></span>

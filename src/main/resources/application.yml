@@ -1,6 +1,6 @@
 server:
 #  address: 0.0.0.0
-  port: 9090
+  port: 8080
 spring:
   profiles:
     # 外置jdbc和log配置文件，加载properties配置文件
@@ -17,7 +17,6 @@ spring:
     mode: HTML5
     cache: false
 
-
 mybatis:
   type-aliases-package: springboot.dao
 
@@ -28,7 +27,7 @@ pagehelper:
   params: count=countSql
 # httpportcfg 配置
 httpportcfg:
-  http_port: 8080
+  http_port: 80
   https_port: 8443
 
 # Nettyserver 配置

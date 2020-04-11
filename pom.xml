@@ -23,7 +23,7 @@
         <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>
     </properties>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
@@ -53,6 +53,12 @@
 
 
     <dependencies>
+    <!-- thyleaf 框架时间处理  -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-java8time</artifactId>
+        </dependency>
+    
     <!-- Pom.xml 排除tomcat容器 ？这个能排除tomcat模块吗-->
     	<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,6 +66,7 @@
 			<scope>provided</scope>
 		</dependency>
         <!-- 数据库连接池-->
+        <!-- 这个版本 启动一直报个错误： validateConnection false -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
