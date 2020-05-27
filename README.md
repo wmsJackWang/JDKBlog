@@ -1,9 +1,16 @@
 # JDKBlog
 博客网站系统的搭建
 
-博主最近比较忙，不过4月会陆陆续续写几篇文章，JDKBlog的搭建教程
-以及开发教程。
+环境
+
+工具	名称
+开发工具	IDEA
+语言	JDK1.8, JS, HTML
+数据库	mysql5.6
+缓存NOSQL	redis
+项目构建	Maven
+运行环境	阿里云Centos7
 
 我的博客网站演示，请点击查看：
-<a href="http://129.28.178.8/" size = 4>比特科技</a>
+<a href="http://bittechblog.com/" size = 4>比特科技</a>
 
