@@ -36,7 +36,7 @@
   ![alt](http://bittechblog.com/upload/2020/05/4dolea2ic2j0kodqpin5nj76mt.png)
   
   - 后端首页
-  ![alt](https://bittechblog.com//upload/2020/05/0jrq2g6ho4jn3qjehj6j73cfcq.png)
+  ![alt](http://bittechblog.com//upload/2020/05/0jrq2g6ho4jn3qjehj6j73cfcq.png)
   
 
 我的博客网站演示，请点击查看：
