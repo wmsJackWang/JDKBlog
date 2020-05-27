@@ -33,10 +33,10 @@
 - 前端效果图
 
   - 前端首页
-  ![alt](https://github.com/wmsJackWang/JDKBlog/blob/master/1590594526.png)
+  ![alt](http://bittechblog.com/upload/2020/05/4dolea2ic2j0kodqpin5nj76mt.png)
   
   - 后端首页
-  ![alt](https://github.com/wmsJackWang/JDKBlog/blob/master/1590594552.png)
+  ![alt](https://bittechblog.com/wmsJackWang/JDKBlog/blob/master/1590594552.png)
   
 
 我的博客网站演示，请点击查看：
