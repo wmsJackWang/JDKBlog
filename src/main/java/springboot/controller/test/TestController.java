@@ -53,7 +53,7 @@ public class TestController extends AbstractController {
     public String hello2Html() {
 
     	System.out.println("here......................");
-        return "redirect:/MP_verify_mVNLTSwlCYsWLaKb.txt";
+        return "redirect:/index.html";
     }
     
     
