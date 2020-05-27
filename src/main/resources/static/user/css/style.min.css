@@ -664,7 +664,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .index-page {
-    padding: 120px 20px 0
+    padding: 0 20px 0
 }
 
 .post-lists {
@@ -815,8 +815,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .post-page {
-    max-width: 700px;
-    padding: 130px 25px 20px
+    max-width: 1200px;
+    padding: 0 25px 20px
 }
 
 .post-content p {

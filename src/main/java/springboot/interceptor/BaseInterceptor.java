@@ -3,6 +3,7 @@ package springboot.interceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 public class BaseInterceptor implements HandlerInterceptor {
+	
+	
     private static final Logger logger = LoggerFactory.getLogger(BaseInterceptor.class);
     private static final String USER_AGENT = "user-agent";
 
@@ -35,6 +38,9 @@ public class BaseInterceptor implements HandlerInterceptor {
 
     @Autowired
     private AdminCommons adminCommons;
+    
+    @Value("${contextPath}")
+    private String contextPath ;
 
 
     @Override
@@ -51,12 +57,24 @@ public class BaseInterceptor implements HandlerInterceptor {
             Integer uid = MyUtils.getCooKieUid(request);
             request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
         }
+        
+//        // 处理uri
+//        if (uri.startsWith("/admin") && !uri.startsWith("/admin/login") && null == user) {
+//            response.sendRedirect(request.getContextPath() + "/admin/login");
+//            return false;
+//        }
         // 处理uri
         if (uri.startsWith("/admin") && !uri.startsWith("/admin/login") && null == user) {
-            response.sendRedirect(request.getContextPath() + "/admin/login");
+            response.sendRedirect(contextPath+"/admin/login");
             return false;
         }
-
+        
+//		// 处理uri
+//		if (uri.startsWith("/admin") && !uri.startsWith("/admin/login") && null == user) {
+//			response.sendRedirect(request.getRequestURI() + "/admin/login");
+//			return false;
+//		}
+        
         // 设置get请求的token
         if (request.getMethod().equals("GET")) {
             String csrf_token = UUID.UU64();

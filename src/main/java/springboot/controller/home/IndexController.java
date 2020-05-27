@@ -31,6 +31,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
@@ -248,8 +250,21 @@ public class IndexController extends AbstractController {
 
     @GetMapping(value = "category/{keyword}/{page}")
     public String categories(HttpServletRequest request, @PathVariable String keyword, @PathVariable int page, @RequestParam(value = "limit", defaultValue = "12") int limit) {
-        page = page < 0 || page > WebConst.MAX_PAGE ? 1 : page;
-        MetaDto metaDto = metaService.getMeta(Types.CATEGORY.getType(), keyword);
+        
+    	logger.info("转码前的keyword:{}",keyword);
+    	String keyWord = keyword;
+//    	try {//对中文转码
+//			keyWord = URLDecoder.decode(keyword, "UTF-8");
+//
+//	    	logger.info("转码后的keyword:{}",keyword);
+//			
+//		} catch (UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+    	logger.info("keyword:{}",keyWord);
+    	page = page < 0 || page > WebConst.MAX_PAGE ? 1 : page;
+        MetaDto metaDto = metaService.getMeta(Types.CATEGORY.getType(), keyWord);
         if (null == metaDto) {
             return this.render_404();
         }
@@ -257,7 +272,7 @@ public class IndexController extends AbstractController {
         request.setAttribute("articles", contentsPaginator);
         request.setAttribute("meta", metaDto);
         request.setAttribute("type", "分类");
-        request.setAttribute("keyword", keyword);
+        request.setAttribute("keyword", keyWord);
 
         return this.render("page-category");
     }

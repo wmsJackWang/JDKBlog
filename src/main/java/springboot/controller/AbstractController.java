@@ -25,9 +25,8 @@ public abstract class AbstractController {
      * @return
      */
     public String render(String viewName) {
-    	
     	if(viewName.startsWith("love"))
-    		return LOVE + "/" + String.valueOf(1);
+    		return LOVE + "/" + viewName;
     	
         return THEME + "/" + viewName;
     }

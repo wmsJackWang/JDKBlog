@@ -1,6 +1,6 @@
 server:
 #  address: 0.0.0.0
-  port: 8080
+  port: 8079
 spring:
   profiles:
     # 外置jdbc和log配置文件，加载properties配置文件

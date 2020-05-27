@@ -3,15 +3,18 @@
 <head>
 </head>
 <body>
-<section class="jumbotron geopattern" data-pattern-id="比特科技 所有文章">
-    <div class="container">
-        <div id="jumbotron-meta-info" style="color: #AD60EE">        
+<section class="jumbotron geopattern" data-pattern-id="比特科技 所有文章" >
+    <div class="container" >
+        <div id="jumbotron-meta-info" style="color: #AD60EE;">        
             <h1><th:block th:text="${title ?: '比特科技 所有文章'}"></th:block></h1>
             <br/>
             <span class="meta-info" >
                 <span class="octicon octicon-calendar"></span> 
-            	<th:block th:text="${auth ?: '博主：王明胜'}"></th:block>
-                <p><time th:datetime="${commons.fmtdate(time)}" itemprop="datePublished" th:text="'发布于： '+ ${commons.fmtdate(time)}"></time></p>
+            	<th:block th:text="${auth ?: '博主：空白'}"></th:block>
+            	
+ 				<th:block th:if='${time!=null}'>
+                	<p><time th:datetime="${commons.fmtdate(time)}" itemprop="datePublished" th:text="'发布于： '+ ${commons.fmtdate(time)}"></time></p>
+            	</th:block>
             </span>
         </div>
     </div>

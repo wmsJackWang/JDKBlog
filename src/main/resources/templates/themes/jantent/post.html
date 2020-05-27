@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:yh="http://www.thymeleaf.org">
 <div th:replace="themes/jantent/header::header(${article.title},${article.tags})"></div>
+<div th:replace="themes/jantent/section::section(${article.title},${article.created},'作者：空白')"></div>
 <body>
 <article class="main-content post-page" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-header">

@@ -8,10 +8,18 @@ import springboot.controller.AbstractController;
 @Controller
 public class MyLoverController extends AbstractController{
 
-//	@GetMapping(value="/mylove")
+	@GetMapping(value="/mylove")
 	public String myLoverChartContent() {
 		
 		System.out.println("into.... loveSystem");
 		return this.render("loveU");
+	}
+
+	@GetMapping(value="/wanyangArchives")
+	public String myWifeArchives() {
+		
+
+		System.out.println("into.... loveSystem");
+		return this.render("lovearchives");
 	}
 }
