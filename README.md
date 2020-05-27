@@ -33,10 +33,10 @@
 - 前端效果图
 
   - 前端首页
-  ![前端首页](https://github.com/wmsJackWang/JDKBlog/blob/master/1590594526.jpg)
+  ![前端首页](https://github.com/wmsJackWang/JDKBlog/blob/master/1590594526.png)
   
   - 后端首页
-  ![后端首页](https://github.com/wmsJackWang/JDKBlog/blob/master/1590594552.jpg)
+  ![后端首页](https://github.com/wmsJackWang/JDKBlog/blob/master/1590594552.png)
   
 
 我的博客网站演示，请点击查看：
