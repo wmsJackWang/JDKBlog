@@ -5,4 +5,5 @@
 以及开发教程。
 
 我的博客网站演示，请点击查看：
-<a href="http://bittechblog.com/" size = 4>比特科技</a>
+<a href="http://129.28.178.8/" size = 4>比特科技</a>
+
