@@ -30,14 +30,16 @@
   - 前后端模式，前端展示博客内容，后端管理博文。
   
   
-- 前端效果图
+- 博客网站效果图
 
   - 前端首页
   ![alt](http://bittechblog.com/upload/2020/05/4dolea2ic2j0kodqpin5nj76mt.png)
   
   - 后端首页
-  ![alt](http://bittechblog.com//upload/2020/05/0jrq2g6ho4jn3qjehj6j73cfcq.png)
+  ![alt](http://bittechblog.com/upload/2020/05/0jrq2g6ho4jn3qjehj6j73cfcq.png)
   
+  - 文章页面
+  ![alt](http://bittechblog.com/upload/2020/05/1po1n8djeagogq5mtvucb4g56t.jpg)
 
 我的博客网站演示，请点击查看：
 <a href="http://bittechblog.com/" size = 4>比特科技</a>
