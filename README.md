@@ -52,6 +52,7 @@
 <a href="http://bittechblog.com/" size = 4>比特科技</a>
 
 - TODO List
+  - 多用户平台，增加权限模块，开放后台管理，用户基于平台创建自己的知识网络。
   - 网站pv统计模块
   - 第三方登入(QQ,Github,支付宝)
   - 接入GitTalk
