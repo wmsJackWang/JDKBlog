@@ -33,12 +33,14 @@
 - 本项目的重要实现
   - 文章缓存到redis，加快博文加载速度
   - 前后端模式，前端展示博客内容，后端管理博文。
-  
+- 新增前后台功能
+  - 首页文章列表展示，后台设置置顶的文章会在列表首页展示
+  - 后台设置可控制文章是否在首页置顶展示
   
 - 博客网站效果图
 
   - 前端首页
-  ![alt](http://bittechblog.com/upload/2020/05/4dolea2ic2j0kodqpin5nj76mt.png)
+  ![alt](http://bittechblog.com/upload/2020/06/rr177kphnkhvoo11jkvptrr4pf.jpg)
   
   - 后端首页
   ![alt](http://bittechblog.com/upload/2020/05/0jrq2g6ho4jn3qjehj6j73cfcq.png)
