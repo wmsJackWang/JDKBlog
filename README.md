@@ -40,7 +40,7 @@
 - 博客网站效果图
 
   - 前端首页
-  ![alt](http://bittechblog.com/upload/2020/06/rr177kphnkhvoo11jkvptrr4pf.jpg)
+  ![alt](http://bittechblog.com/upload/2020/06/svaqtus2meio2r5dhecq8jo7h2.png)
   
   - 后端首页
   ![alt](http://bittechblog.com/upload/2020/05/0jrq2g6ho4jn3qjehj6j73cfcq.png)
