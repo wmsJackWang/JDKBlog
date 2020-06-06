@@ -45,6 +45,15 @@
   - 后端首页
   ![alt](http://bittechblog.com/upload/2020/05/0jrq2g6ho4jn3qjehj6j73cfcq.png)
   
+  - 后端文章管理(发布出去的文章以及未发布的草稿)
+  ![alt](http://bittechblog.com/upload/2020/06/1f2vimn8bmjocpajuk7esc4qqo.jpg)
+  
+  - 后端知识文档模板管理(基于该博客网站，建立自己的知识网络，无论在哪儿，用手机就能随时复习，这是私有的文档，不对外展示)
+  ![alt](http://bittechblog.com/upload/2020/06/t1okb6f7mkhurr6q3cfdda8gf2.jpg)
+  
+  - 手机查看私有的文档，随时复习知识
+  ![alt](http://bittechblog.com/upload/2020/06/66rldgn7nchj4qsa23d6o0iugv.jpg)
+  
   - 文章页面
   ![alt](http://bittechblog.com/upload/2020/05/1po1n8djeagogq5mtvucb4g56t.jpg)
 
